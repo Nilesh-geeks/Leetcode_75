@@ -1,0 +1,28 @@
+Problem  Link :: https://leetcode.com/problems/reverse-vowels-of-a-string/description/?envType=study-plan-v2&envId=leetcode-75 
+Problem :: 345. Reverse Vowels of a String
+
+Given a string s, reverse only all the vowels in the string and return it.
+
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+Time Complexity :: O(N)
+Space Complexity :: O(1)
+Code :: 
+class Solution {
+    bool vowel(char c){
+        return c =='A' or c=='E' or c=='I' or c=='O' or c=='U' or c=='a' or c=='e' or c=='i' or c=='o' or c=='u';
+    }
+public:
+    string reverseVowels(string s) {
+        int i=0 , j = s.length()-1; 
+        while(i<j){
+            while(i<j && !vowel(s[i]))i++;
+            while(i<j && !vowel(s[j]))j--;
+           
+            swap(s[i],s[j]);
+            i++;
+            j--;
+           
+        }
+        return s;
+    }
+};
